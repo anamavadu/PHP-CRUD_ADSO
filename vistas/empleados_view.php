@@ -29,6 +29,7 @@
                     <td><?= $empleado['salario'] ?></td>
                     <td>
                         <a href="index.php?accion=modalActualizar&id=<?= $empleado['id'] ?>">✏️</a>
+                        <a href="index.php?accion=eliminarEmpleado&id=<?= $empleado['id'] ?>">❌</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

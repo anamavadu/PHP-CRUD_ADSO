@@ -10,19 +10,19 @@ class EmpleadoControlador {
         $this->modeloEmpleado = new EmpleadoModelo();
     }
 
-// Controlador para mostrar empleados //
+// == Controlador para mostrar empleados == //
 
     public function mostrarEmpleados() {
         $empleados = $this->modeloEmpleado->obtenerEmpleados();
         include './vistas/empleados_view.php';
     }
 
-// Controlador para mostrar formulario //
+// == Controlador para mostrar formulario == //
 public function mostrarFormularioAgregarEmpleado(): void {
     include './Vistas/modaladdempleado.php';
 }
 
-// Controlador para adicionar empleados //
+// == Controlador para adicionar empleados == //
 public function agregarEmpleado(): void {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $nombre = $_POST['nombre'];
@@ -38,13 +38,13 @@ public function agregarEmpleado(): void {
     }
 }
 
-// Controlador para Mostrar formulario, con UN empleado por SU ID //
+// == Controlador para Mostrar formulario, con UN empleado por SU ID == //
 public function mostrarFormularioActualizarEmpleado(int $id): void {
     $empleado = $this->modeloEmpleado->obtenerEmpleadoPorId($id);
     include './Vistas/modalactualizarempleado.php';
 }
 
-// Controlador para Actualizar empleado por su ID //
+// == Controlador para Actualizar empleado por su ID == //
 public function actualizarEmpleado(): void {
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $id = $_POST['id'];
@@ -60,6 +60,19 @@ public function actualizarEmpleado(): void {
         }
     }
 }
+
+// == Controlador para eliminar empleado por su ID == //
+public function eliminarEmpleado(int $id): void {
+    $exito = $this->modeloEmpleado->eliminarEmpleado($id);
+    if ($exito) {
+        header("Location: index.php");
+        exit();
+    } else {
+        exit("Error al eliminar empleado");
+    }
+}
+
+
 
 }
 ?>

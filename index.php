@@ -19,6 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
                     $controladorEmpleado->mostrarFormularioActualizarEmpleado($_GET['id']);
                 }
             break;
+        case 'eliminarEmpleado':
+                if (isset($_GET['id'])) {
+                    $controladorEmpleado->eliminarEmpleado($_GET['id']);
+                }
+                break;
     }
 
     $controladorEmpleado->mostrarEmpleados();
