@@ -26,6 +26,22 @@ public function agregarEmpleado(string $nombre, string $cargo, int $salario): bo
     }
 }
 
+// Modelo para consultar UN empleado en la BD por su ID //
+public function obtenerEmpleadoPorId(int $id): array {
+    $statement = $this->conexion->prepare("SELECT * FROM empleados WHERE id = ?");
+    $statement->execute([$id]);
+    return $statement->fetch(PDO::FETCH_ASSOC);
+}
+
+// Modelo para Actualizar UN empleado en la BD por su ID
+public function actualizarEmpleado(int $id, string $nombre, string $cargo, int $salario): bool {
+    try {
+        $statement = $this->conexion->prepare("UPDATE empleados SET nombre = ?, cargo = ?, salario = ? WHERE id = ?");
+        return $statement->execute([$nombre, $cargo, $salario, $id]);
+    } catch (PDOException $e) {
+        exit("Error al actualizar el empleado: " . $e->getMessage());
+    }
+}
 
 }
 ?>

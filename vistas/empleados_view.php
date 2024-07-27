@@ -17,6 +17,7 @@
                 <th>Nombre</th>
                 <th>Cargo</th>
                 <th>Salario</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@
                     <td><?= $empleado['nombre'] ?></td>
                     <td><?= $empleado['cargo'] ?></td>
                     <td><?= $empleado['salario'] ?></td>
+                    <td>
+                        <a href="index.php?accion=modalActualizar&id=<?= $empleado['id'] ?>">✏️</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

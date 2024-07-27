@@ -14,6 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
             include './vistas/modaladdempleado.php';
             break;
 
+        case 'modalActualizar':
+                if (isset($_GET['id'])) {
+                    $controladorEmpleado->mostrarFormularioActualizarEmpleado($_GET['id']);
+                }
+            break;
     }
 
     $controladorEmpleado->mostrarEmpleados();
@@ -28,6 +33,9 @@ elseif ($_SERVER["REQUEST_METHOD"] === "POST") {
             $controladorEmpleado->agregarEmpleado();
             break;
 
+        case 'actualizar_empleado':
+                $controladorEmpleado->actualizarEmpleado();
+            break;
     }
 
     header("Location: index.php");

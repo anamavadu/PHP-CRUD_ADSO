@@ -38,6 +38,28 @@ public function agregarEmpleado(): void {
     }
 }
 
+// Controlador para Mostrar formulario, con UN empleado por SU ID //
+public function mostrarFormularioActualizarEmpleado(int $id): void {
+    $empleado = $this->modeloEmpleado->obtenerEmpleadoPorId($id);
+    include './Vistas/modalactualizarempleado.php';
+}
+
+// Controlador para Actualizar empleado por su ID //
+public function actualizarEmpleado(): void {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $cargo = $_POST['cargo'];
+        $salario = $_POST['salario'];
+        $exito = $this->modeloEmpleado->actualizarEmpleado($id, $nombre, $cargo, $salario);
+        if ($exito) {
+            header("Location: index.php");
+            exit();
+        } else {
+            exit("Error al actualizar el empleado");
+        }
+    }
+}
 
 }
 ?>
