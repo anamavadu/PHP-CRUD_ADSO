@@ -8,8 +8,8 @@
 </head>
 <body>
     <h3>CRUD de Empleados</h3>
-
-
+    <a href="index.php?accion=modalAdd">Agregar Empleado ➕📁</a>
+    
     <table class="table" border="1" >
         <thead>
             <tr>

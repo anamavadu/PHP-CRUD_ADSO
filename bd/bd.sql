@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `empleados` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `nombre` VARCHAR(255) NOT NULL,
     `cargo` VARCHAR(255) NOT NULL,
-    `salario` DECIMAL(10, 2) NOT NULL
+    `salario` INT NOT NULL
 );
 
 -- Insertar datos de ejemplo
