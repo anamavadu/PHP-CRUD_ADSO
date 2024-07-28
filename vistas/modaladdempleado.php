@@ -10,7 +10,9 @@
             <input type="text" id="cargo" name="cargo" required><br>
             <label for="salario">Salario:</label><br>
             <input type="number" id="salario" name="salario" required><br>
+            <div class = "button-container">
             <button type="submit">Agregar</button>
+            </div>
         </form>
     </div>
 </div>

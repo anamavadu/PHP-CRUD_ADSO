@@ -11,7 +11,9 @@
             <input type="text" id="cargo" name="cargo" value="<?= $empleado['cargo'] ?>" required><br>
             <label for="salario">Salario:</label><br>
             <input type="number" id="salario" name="salario" value="<?= $empleado['salario'] ?>" step="0.01" required><br><br>
+            <div class= "button-container">
             <button type="submit">Actualizar</button>
+            </div>
         </form>
     </div>
 </div>

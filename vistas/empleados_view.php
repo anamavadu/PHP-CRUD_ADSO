@@ -8,9 +8,10 @@
 </head>
 <body>
     <h3>CRUD de Empleados</h3>
-    <a href="index.php?accion=modalAdd">Agregar Empleado ➕📁</a>
-    
-    <table class="table" border="1" >
+    <a href="index.php?accion=modalAdd">Agregar Empleado ➕👤</a>
+    <input type="text" id="inputBusqueda" placeholder="Buscar por nombre" onkeyup="filtrarEmpleados()">
+
+    <table class="table" border="1" id="tablaEmpleados">
         <thead>
             <tr>
                 <th>ID</th>
@@ -28,13 +29,15 @@
                     <td><?= $empleado['cargo'] ?></td>
                     <td><?= $empleado['salario'] ?></td>
                     <td>
-                        <a href="index.php?accion=modalActualizar&id=<?= $empleado['id'] ?>">✏️</a>
-                        <a href="index.php?accion=eliminarEmpleado&id=<?= $empleado['id'] ?>">❌</a>
+                        <a href="index.php?accion=modalActualizar&id=<?= $empleado['id'] ?>">🖋️</a>
+                        <a href="index.php?accion=eliminarEmpleado&id=<?= $empleado['id'] ?>">🗑️</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+
+    <script src="./publico/script.js"></script>
 
 </body>
 </html>
